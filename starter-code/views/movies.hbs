@@ -1,0 +1,25 @@
+<h1>MOVIES</h1>
+
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+    </tr>
+    {{#each movies}}
+    <tr>
+      <td><a href="/movies/{{this._id}}">{{this.title}}</a></td>
+      <td>{{this.genre}}</td>
+      <td>
+      <form action="/movies/{{this._id}}/delete" method="post">
+        <button type="submit" name="button">Delete</button>
+      </form> 
+      </td>
+      <td>
+        <a href="/movies/edit?movie_id={{this._id}}" class="edit-button">Edit</a>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+  <a href="/movies/add" class="edit-button">Add a new movie</a>
+</div>
