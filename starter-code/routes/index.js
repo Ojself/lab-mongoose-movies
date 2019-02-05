@@ -18,13 +18,14 @@ router.get('/celebrities', (req, res) => {
 
 router.get('/celebrities/add', (req, res) => {
   res.render('new');
+  
 })
 
 router.post('/celebrities/add', (req, res) => {
   const {name, occupation, catchPhrase} = req.body;
   const newCelebrity = new Celebrities ({name, occupation, catchPhrase})
   newCelebrity.save()
-  .then ((celebrity) => {
+  .then((celebrity) => {
     res.redirect('/celebrities')
   })
   .catch ((error) => {
@@ -36,10 +37,11 @@ router.post('/celebrities/add', (req, res) => {
 router.get('/celebrities/edit', (req, res) => {
   Celebrities.findOne ({_id: req.query.celebrity_id})
   .then((celebrity) => {
-    res.render('edita-celebrity', {celebrity})
+    res.render('edit-celebrity', {celebrity})
   })
   .catch(err => {console.log(err)})
 })
+
 
 router.post('/celebrities/edit', (req, res) => {
   const {name, occupation, catchPhrase} = req.body;
@@ -49,6 +51,7 @@ router.post('/celebrities/edit', (req, res) => {
   })
   .catch(err => console.log(err))
 })
+
 
 
 router.post('/celebrities/:id/delete', (req, res) => {
