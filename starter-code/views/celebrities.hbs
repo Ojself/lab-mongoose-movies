@@ -11,9 +11,9 @@
       <td><a href="/celebrities/{{this._id}}">{{this.name}}</a></td>
       <td>{{this.occupation}}</td>
       <td>
-      <form action="/celebrities/{{this._id}}/delete" method="post">
-        <button type="submit" name="button">Delete</button>
-      </form> 
+        <form action="/celebrities/{{this._id}}/delete" method="post">
+          <button type="submit" name="button">Delete</button>
+        </form>
       </td>
       <td>
         <a href="/celebrities/edit?celebrity_id={{this._id}}" class="edit-button">Edit</a>
@@ -21,5 +21,8 @@
     </tr>
     {{/each}}
   </table>
-  <a href="/celebrities/add" class="edit-button">Add new star</a>
+  <br>
+  <a href="/celebrities/add" class="edit-button"><span style="color:red"> Add </span> new star</a> <br>
+  <br>
+  <a href="/movies" class="edit-button">Check out the movies instead</a>
 </div>
